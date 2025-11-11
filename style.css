@@ -6,6 +6,8 @@
 
 :root {
     --blue: #2a9df4;
+    --gray: #f3f4f6;
+    --dark-gray: #ccd1d8;
     font-size: 16px;
 }
 
@@ -14,6 +16,10 @@ body,
 .main-container {
     width: 100%;
     height: 100%;
+}
+
+img {
+    max-width: 20%;
 }
 
 ul {
@@ -27,7 +33,7 @@ body {
 .main-container {
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 5fr;
+    grid-template-rows: clamp(110px, 16%, 140px) 1fr;
 }
 
 .sidebar {
@@ -41,7 +47,9 @@ body {
     display: flex;
     flex-direction: column;
     padding-right: 30px;
+    padding: 5%;
     gap: 4rem;
+    z-index: 2;
 }
 
 .sidebar img {
@@ -85,6 +93,107 @@ body {
 .header {
     grid-row: 1;
     grid-column: 2;
+    padding: 1rem 3rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    max-height: 140px;
+    box-shadow: var(--dark-gray) 1px 5px 5px;
+    z-index: 1;
+}
+
+.header-top {
+    grid-row: 1;
+    display: flex;
+    gap: 4rem;
+    justify-content: space-between;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 2 1 50%;
+}
+
+.search img {
+    width: 20px;
+}
+
+.search input {
+    border: var(--gray) 1px solid;
+    background-color: var(--gray);
+    border-radius: 1rem;
+    flex: 1;
+    height: 30px;
+    padding: 0.5rem 1rem;
+}
+
+.profile-right {
+    flex: 1 1 30%;
+    align-items: center;
+    justify-content: flex-end;
+    display: flex;
+    gap: 1rem;
+    font-weight: 700;
+}
+
+.profile-right img {
+    width: 20px;
+}
+
+.profile-right .medium-icon {
+    width: 30px;
+    border: black 1px solid;
+    border-radius: 5rem;
+}
+
+.header-bot {
+    grid-row: 2;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-left {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.profile-left img {
+    width: 40px;
+    height: fit-content;
+    max-width: none;
+    border: black 1px solid;
+    border-radius: 5rem;
+}
+
+.profile-left-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 700;
+    line-height: 1.2rem;
+}
+
+.small {
+    font-size: 0.7rem;
+}
+
+.header-buttons ul {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    height: 100%;
+}
+
+.header-buttons button {
+    all: unset;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    background-color: var(--blue);
+    color: white;
+    font-weight: 700;
+    border-radius: 1rem;
 }
 
 .content {
